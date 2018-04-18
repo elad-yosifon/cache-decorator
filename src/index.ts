@@ -41,8 +41,7 @@ export enum CacheScope {
 
 export enum CacheType {
   SINGLETON = 1,
-  MEMO,
-  TTL
+  MEMO
 }
 
 
@@ -85,10 +84,8 @@ class Cache {
     } else {
       context[key] = [[val, args]];
     }
-    if (this.type === CacheType.TTL) {
-      if (!this.ttl) {
-        throw new Error('ttl required in CacheType.TTL');
-      }
+
+    if (this.ttl) {
       setTimeout(() => context[key] = null, this.ttl);
     }
     return val;

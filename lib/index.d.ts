@@ -5,7 +5,6 @@ export declare enum CacheScope {
 export declare enum CacheType {
     SINGLETON = 1,
     MEMO = 2,
-    TTL = 3,
 }
 export declare type Comparator = (newVal: any, oldVal: any) => boolean;
 export declare const DEFAULT_COMPARE_FN: (a: any, b: any) => any;
