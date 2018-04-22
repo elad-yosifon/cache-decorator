@@ -1,8 +1,9 @@
 {
   "name": "cache-decorator",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "description": "javascript method/function cache decorator.",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
+  "types": "src/index.ts",
   "scripts": {
     "release": "gulp release",
     "minify": "gulp",
@@ -14,21 +15,22 @@
     "url": "git+ssh://git@github.com/brn/cache-decorator.git"
   },
   "keywords": [
-    "virtual-dom",
-    "vdom",
-    "dom",
-    "react",
-    "fuel"
+    "cache",
+    "decorator",
+    "memoization",
+    "lru",
+    "ttl"
   ],
-  "author": "brn",
+  "author": {
+    "name": "brn"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/brn/cache-decorator/issues"
   },
   "homepage": "https://github.com/brn/cache-decorator#readme",
-  "peerDependencies": {
-    "fueldom": "^0.1.0"
-  },
+  "bundleDependencies": false,
+  "deprecated": false,
   "devDependencies": {
     "@types/chai": "^3.4.35",
     "@types/mocha": "^2.2.39",

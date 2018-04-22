@@ -19,17 +19,33 @@
 declare var global: any;
 const g = typeof global === 'object'? global: typeof window === 'object'? window: this || {};
 
-const Symbol = typeof g.Symbol === 'function'? g.Symbol: (() => {
+const Symbol: SymbolConstructor = typeof g.Symbol === 'function'? g.Symbol: (() => {
   const map = {};
-  function Symbol(sym: string) {
-    return `@@${sym}`;
+  class SymbolConstructor {
+    private symbol: string;
+    constructor(sym: string) {
+      this.symbol = `@@${sym}`;
+    }
+    public toString() {
+      return this.symbol;
+    }
+    public toJSON() {
+      return this.symbol;
+    }
   }
+
+  function Symbol(sym: string) {
+    return new SymbolConstructor(sym);
+  }
+
   Symbol['for'] = (sym: string) => {
     if (map[sym]) {
       return map[sym];
     }
     return map[sym] = Symbol(sym);
   }
+
+  return Symbol;
 })();
 
 
